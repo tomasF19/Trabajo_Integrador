@@ -1,0 +1,296 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: blue;
+    background-size: cover;
+    flex: 1;
+}
+
+header {
+    background-color: #f49261;
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 50px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+section.productos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto-card {
+    background-color: #fff;
+    border: 5px solid #ddd;
+    border-radius: 30px;
+    width: calc(80% - 40px);
+    max-width: 450px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.producto-card img {
+    width: 100%;
+    height: auto;
+}
+
+.producto-card .info {
+    padding: 15px;
+    text-align: center;
+}
+
+.producto-card .info h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.producto-card .info p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.producto-card .info .precio {
+    font-size: 1.5em;
+    color: #e74c3c;
+    margin: 10px 0;
+}
+
+.imagen-fondo {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    padding: 0;
+    object-fit: cover;
+}
+
+.comprar-btn {
+    background-color: #f49261;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comprar-btn:hover {
+    background-color: #e07b50;
+}
+
+.logo h1 {
+    margin: 0;
+    padding-left: 40px;
+    font-size: 1.5em;
+    color: #ffffff;
+}
+
+main h1, main h2 {
+    text-align: center;
+}
+
+.reseñas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.reseña-card {
+    background-color: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin: 20px;
+}
+
+.reseña-autor {
+    font-weight: bold;
+    color: #4a4a4a;
+    margin-bottom: 5px;
+}
+
+.reseña-estrellas {
+    color: #ffd700;
+    font-size: 300%;
+    margin-bottom: 10px;
+}
+
+.reseña-texto {
+    color: #666;
+    line-height: 1.5;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.empresa-info p {
+    font-size: 2em;
+    color: #fcf9f9;
+}
+
+.info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.contact-form h2 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.contact-form p {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-form form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.contact-form form input, 
+.contact-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.contact-form form input:focus, 
+.contact-form form textarea:focus {
+    outline: none;
+    border-color: #f49261;
+    box-shadow: 0 0 5px rgba(244, 146, 97, 0.5);
+}
+
+.enviar-btn {
+    background-color: #f50606;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.enviar-btn:hover {
+    background-color: #c70404;
+}
+
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    nav ul {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    nav ul li {
+        margin: 10px 0; 
+    }
+
+    .producto-card {
+        width: calc(100% - 40px); 
+        max-width: none; 
+    }
+
+    .reseñas {
+        grid-template-columns: 1fr; 
+    }
+
+    .contact-form {
+        padding: 20px; 
+        max-width: 90%; 
+    }
+}
+
+
+@media (max-width: 480px) {
+    nav ul li {
+        margin: 5px 0; 
+    }
+
+    .producto-card {
+        width: calc(100% - 20px); 
+    }
+
+    .reseñas {
+        grid-template-columns: 1fr; 
+    }
+
+    .comprar-btn {
+        padding: 8px 16px; 
+        font-size: 0.9em;
+    }
+
+    .contact-form {
+        padding: 15px; 
+        max-width: 100%; 
+    }
+}

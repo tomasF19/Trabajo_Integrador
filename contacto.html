@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Componentes Gamers</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-form">
+            <h2>Contáctanos</h2>
+            <p>¿Tienes alguna consulta? Envíanos un mensaje y te responderemos a la brevedad.</p>
+            <form action="https://formspree.io/f/{your_form_id}" method="POST">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="name" placeholder="Ingresa tu nombre" required>
+                
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="30" placeholder="Escribe tu mensaje aquí" required></textarea>
+                
+                <button type="enviar" class="enviar-btn">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>2024 Componentes Gamers. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
