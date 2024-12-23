@@ -4,117 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e4e35d25ab.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Componentes Gamers</h1>
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <h1 class="fs-3">Componentes Gamers</h1>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="carrito.html">
+                                <i class="fa fa-shopping-cart"></i> Carrito
+                                <span id="contadorCarrito" class="badge bg-danger">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+        
+        <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="listaCarrito" class="list-group mb-3">
+                        </ul>
+                        <div id="mensajeCarritoVacio" class="text-center my-3" style="display: none;">
+                            <p>Carrito vacío. <a href="productos.html" class="enlace-productos">Agregar productos al carrito de compras</a></p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <strong>Total:</strong>
+                            <span id="totalCarrito">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                        <button type="button" class="btn btn-primary btn-finalizar-compra" onclick="comprarCarrito()">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-    <main>
-        <section class="productos">
-            <article class="producto-card">
-                <img src="img/procesadori9.jpg" alt="Procesador 1">
-                <div class="info">
-                    <h3>Procesador Intel Core i9 14900 5.8GHz</h3>
-                    <p>El Intel Core i9 es una línea de procesadores de alto rendimiento diseñada por Intel, ideal para tareas exigentes como gaming, edición de video, renderizado 3D y trabajos intensivos en multitarea. Estos procesadores se destacan por tener múltiples núcleos (hasta 24 núcleos en algunas versiones recientes), una alta frecuencia de reloj, y soporte para tecnología Hyper-Threading, lo que les permite manejar múltiples hilos de ejecución simultáneamente. Además, cuentan con características avanzadas como Intel Turbo Boost para aumentar dinámicamente la velocidad del reloj y Intel Optane Memory para optimizar el rendimiento general del sistema.</p>
-                    <p class="precio">$857.999</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/ryzen9.jpg" alt="Procesador 2">
-                <div class="info">
-                    <h3>Procesador AMD Ryzen 9 7950X3D 5.7GHz</h3>
-                    <p>El AMD Ryzen 9 7950X3D es un procesador de alto rendimiento de la serie Ryzen 7000, basado en la arquitectura Zen 4. Es especialmente notable por integrar tecnología 3D V-Cache, que proporciona un mayor caché L3, optimizando el rendimiento en tareas intensivas como gaming y procesamiento de datos.</p>
-                    <p class="precio">$1.099.999</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/rx5704gb.jpg" alt="Placa de Video 1">
-                <div class="info">
-                    <h3>Placa de Video Asrock Radeon RX 570 4GB</h3>
-                    <p>La ASRock Radeon RX 570 4GB es una tarjeta gráfica de gama media basada en la arquitectura Polaris de AMD. Ofrece un buen equilibrio entre rendimiento y precio, siendo ideal para gaming a 1080p y tareas gráficas moderadas.</p>
-                    <p class="precio">$169.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/rtx3060.jpg" alt="Placa de Video 2">
-                <div class="info">
-                    <h3>Placa de Video MSI GeForce RTX 3060 12GB</h3>
-                    <p>La MSI GeForce RTX 3060 12GB es una tarjeta gráfica de gama media-alta basada en la arquitectura Ampere de NVIDIA, diseñada para ofrecer un excelente rendimiento en gaming y productividad. Se destaca por su memoria amplia y soporte para tecnologías de última generación.</p>
-                    <p class="precio">$369.999</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/ram.webp" alt="Memoria RAM 1">
-                <div class="info">
-                    <h3>Memoria RAM Corsair Vengeance 16GB</h3>
-                    <p>La Corsair Vengeance 16GB es una memoria RAM de alto rendimiento, reconocida por su fiabilidad y capacidad para mejorar el rendimiento en sistemas de escritorio, especialmente en tareas como gaming, edición de video y multitarea.</p>
-                    <p class="precio">$80.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/ram2.webp" alt="Memoria RAM 2">
-                <div class="info">
-                    <h3>Memoria RAM G.Skill Trident Z 32GB</h3>
-                    <p>La G.Skill Trident Z 32GB es una memoria RAM de alta gama, conocida por su rendimiento extremo y su diseño elegante con iluminación RGB personalizable. Es ideal para entusiastas, gamers y profesionales que buscan un rendimiento superior y una estética destacada.</p>
-                    <p class="precio">$150.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/ssd.webp" alt="SSD 1">
-                <div class="info">
-                    <h3>SSD Samsung 970 EVO 1TB</h3>
-                    <p>El Samsung 970 EVO 1TB es un SSD de alto rendimiento, diseñado para usuarios que buscan velocidades rápidas y fiabilidad en sus sistemas, ya sea para gaming, edición de video o tareas profesionales.</p>
-                    <p class="precio">$120.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/ssd2.webp" alt="SSD 2">
-                <div class="info">
-                    <h3>SSD Crucial MX500 500GB</h3>
-                    <p>El Crucial MX500 500GB es un SSD de gama media-alta conocido por su equilibrio entre rendimiento, fiabilidad y precio. Es una excelente opción para mejorar la velocidad de sistemas de escritorio o portátiles.</p>
-                    <p class="precio">$60.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/mother.webp" alt="Placa Madre 1">
-                <div class="info">
-                    <h3>Placa Madre ASUS ROG Strix Z490-E</h3>
-                    <p>La ASUS ROG Strix Z490-E Gaming es una placa madre de gama alta diseñada para entusiastas y gamers que buscan rendimiento extremo, estabilidad y un amplio rango de características avanzadas.</p>
-                    <p class="precio">$2.100.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
-            <article class="producto-card">
-                <img src="img/mother2.webp" alt="Placa Madre 2">
-                <div class="info">
-                    <h3>Placa Madre Gigabyte B550m</h3>
-                    <p>La Gigabyte B550M es una placa madre de formato micro-ATX que utiliza el chipset B550 de AMD. Está diseñada para ofrecer un buen equilibrio entre rendimiento, características modernas y precio accesible, siendo ideal para configuraciones de gaming o productividad con procesadores Ryzen.</p>
-                    <p class="precio">$130.000</p>
-                    <button class="comprar-btn">Comprar</button>
-                </div>
-            </article>
+    <main class="container my-5">
+        <h2 class="text-center mb-4">Nuestros Productos</h2>
+        <section class="row g-4 productos">
+            <!-- los productos se van a estar cargando aca -->
         </section>
     </main>
-    <footer>
-        <p>2024 Componentes gamers. Todos los derechos reservados</p>
+    <footer class="bg-dark text-white py-3">
+        <div class="container text-center">
+            <p>2024 Componentes Gamers. Todos los derechos reservados.</p>
+        </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="script.js"></script>
 </body>
 </html>

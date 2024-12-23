@@ -4,66 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,200;0,400;0,500;0,800;1,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/e4e35d25ab.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Componentes Gamers</h1>
+    <header class="bg-dark text-white p-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <h1 class="fs-3">Componentes Gamers</h1>
+            </div>
+            <nav class="navbar navbar-expand-lg">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="productos.html">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="carrito.html">
+                                <i class="fa fa-shopping-cart"></i> Carrito
+                                <span id="contadorCarrito" class="badge bg-danger">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
+        
+        <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul id="listaCarrito" class="list-group mb-3">
+                        </ul>
+                        <div id="mensajeCarritoVacio" class="text-center my-3" style="display: none;">
+                            <p>Carrito vacío. <a href="productos.html" class="enlace-productos">Agregar productos al carrito de compras</a></p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <strong>Total:</strong>
+                            <span id="totalCarrito">$0.00</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-danger" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                        <button type="button" class="btn btn-primary btn-finalizar-compra" onclick="comprarCarrito()">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
-    <main>
-        <h1>Bienvenido a Componentes gamers</h1>
-        <img src="img/fondo.jpg" alt="Descripción de la imagen" class="imagen-fondo">
-        <div class="empresa-info" style="text-align: center;">
-            <p>Somos una empresa de gamers para gamers.</p>
-            <p>En nuestra tienda digital encontrarás los mejores y mas baratos componentes gamers. Desde procesadores, Placas de video y RAM. Proximamente perifericos y otras cosas más!</p>           
+    <main class="container mt-4">
+        <div class="text-center mb-4">
+            <h1 class="display-4">Bienvenido a Componentes Gamers</h1>
+            <img src="img/fondo.jpg" alt="Descripción de la imagen" class="img-fluid rounded shadow imagen-fondo">
         </div>
-        <h2>Reseñas de Usuarios</h2>
-        <div class="reseñas-container">
-            <section class="reseñas">
-                <div class="reseña-card">
-                    <div class="reseña-autor">Bruno Kruszyn</div>
-                    <div class="reseña-estrellas">★★★★★</div>
-                    <p class="reseña-texto">Excelente tienda, encontré todo lo que necesitaba para mi PC gamer a muy buen precio.</p>
+        <div class="empresa-info text-center">
+            <p class="lead">Somos una empresa de gamers para gamers.</p>
+            <p class="lead">En nuestra tienda digital encontrarás los mejores y más baratos componentes gamers. Desde procesadores, placas de video y RAM. ¡Próximamente periféricos y más!</p>           
+        </div>
+        <h2 class="my-4">Reseñas de Usuarios</h2>
+        <div class="row">
+            <div class="col-md-4 mb-3" *ngFor="let reseña of reseñas">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Bruno Kruszyn</h5>
+                        <p class="card-text">Excelente tienda, encontré todo lo que necesitaba para mi PC gamer a muy buen precio.</p>
+                        <p class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    </div>
                 </div>
-                <div class="reseña-card">
-                    <div class="reseña-autor">Martín Pérez</div>
-                    <div class="reseña-estrellas">★★★★☆</div>
-                    <p class="reseña-texto">El servicio al cliente es increíble, me ayudaron a elegir los mejores componentes para mi setup.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Martín Pérez</h5>
+                        <p class="card-text">El servicio al cliente es increíble, me ayudaron a elegir los mejores componentes para mi setup.</p>
+                        <p class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                    </div>
                 </div>
-                <div class="reseña-card">
-                    <div class="reseña-autor">Mathias Vasile</div>
-                    <div class="reseña-estrellas">★★★★★</div>
-                    <p class="reseña-texto">Muy satisfecho con mi compra, los productos llegaron rápido y en perfectas condiciones.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Mathias Vasile</h5>
+                        <p class="card-text">Muy satisfecho con mi compra, los productos llegaron rápido y en perfectas condiciones.</p>
+                        <p class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    </div>
                 </div>
-                <div class="reseña-card">
-                    <div class="reseña-autor">Lionel Messi</div>
-                    <div class="reseña-estrellas">★★★★★</div>
-                    <p class="reseña-texto">Gran variedad de productos y precios competitivos. Definitivamente volveré a comprar aquí.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Lionel Messi</h5>
+                        <p class="card-text">Gran variedad de productos y precios competitivos. Definitivamente volveré a comprar aquí.</p>
+                        <p class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    </div>
                 </div>
-                <div class="reseña-card">
-                    <div class="reseña-autor">Julian Alvarez</div>
-                    <div class="reseña-estrellas">★★★★☆</div>
-                    <p class="reseña-texto">La mejor tienda de componentes gamers que he encontrado, 100% recomendada.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Julian Alvarez</h5>
+                        <p class="card-text">La mejor tienda de componentes gamers que he encontrado, 100% recomendada.</p>
+                        <p class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</p>
+                    </div>
                 </div>
-                <div class="reseña-card">
-                    <div class="reseña-autor">Lautaro Martinez</div>
-                    <div class="reseña-estrellas">★★★★★</div>
-                    <p class="reseña-texto">La mejor tienda de componentes gamers que he encontrado, 100% recomendada.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Lautaro Martinez</h5>
+                        <p class="card-text">La mejor tienda de componentes gamers que he encontrado, 100% recomendada.</p>
+                        <p class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
     </main>
-    <footer>
-        <p>2024 Componentes gamers. Todos los derechos reservados</p>
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2024 Componentes Gamers. Todos los derechos reservados.</p>
+            <div class="social-links mt-3">
+                <a href="#" class="text-white mx-2"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fa fa-twitter"></i></a>
+                <a href="#" class="text-white mx-2"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 </html>

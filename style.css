@@ -1,4 +1,3 @@
-
 html, body {
     height: 100%;
     margin: 0;
@@ -35,6 +34,90 @@ nav ul li {
     margin: 0 50px;
 }
 
+#contadorCarrito {
+    margin-left: 10px; 
+}
+
+#carritoModal .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#carritoModal .modal-header {
+    background-color: #343a40;
+    color: #fff;
+    border-bottom: none;
+}
+
+#carritoModal .modal-body {
+    padding: 20px;
+}
+
+#carritoModal .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#carritoModal .list-group-item button {
+    margin-left: 10px;
+}
+
+#carritoModal .modal-footer {
+    border-top: none;
+}
+
+#carritoModal .btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+#carritoModal .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#carritoModal .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+/* Estilos personalizados para SweetAlert2 */
+.custom-popup-class {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-title-class {
+  color: #3085d6;
+  font-weight: bold;
+}
+
+.custom-content-class {
+  color: #333;
+}
+
+.custom-confirm-button-class {
+  background-color: #3085d6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.enlace-productos {
+    color: #007bff; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: color 0.3s ease;
+}
+
+.enlace-productos:hover {
+    color: #0056b3; 
+    text-decoration: underline; 
+}
 nav ul li a {
     text-decoration: none;
     color: #000;
@@ -49,7 +132,9 @@ section.productos {
     gap: 20px;
     padding: 20px;
 }
-
+.custom-card {
+    max-width: 100%;
+  }
 .producto-card {
     background-color: #fff;
     border: 5px solid #ddd;
